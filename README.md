@@ -32,5 +32,5 @@ To keep changes and formatting in line there are some rules in place to guarante
     > This is an example of a note
 
 [issues]:https://github.com/PeeHaa/php-net-tutorial/issues
-[tutorial]:http://nl.php.net/tut.php
+[tutorial]:http://php.net/tut.php
 [manual]:http://php.net/manual/en/
