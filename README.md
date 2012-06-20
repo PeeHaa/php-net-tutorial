@@ -22,7 +22,6 @@ To keep changes and formatting in line there are some rules in place to guarante
 - The documents should be named as the title in only lowercase characters where spaces are replaced by dashes (`-`) and prefixed with `n-` where `n` is the topic number.
 - The documents should be saved using the `.md` extension.
 - The documents should use proper markdown formatting.
-- When new documents are added the table of contents should be updated accordingly with the filename as entry.
 - Always add links to [the English version of the manual][manual] where more information or further  
   explanation is justified. Note that links to the manual should **not** be preceded by a subdomain, e.g.: http://nl.php.net/manual/en/.
 - When adding links always use named link instead of numeric links or inline links.
