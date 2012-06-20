@@ -19,7 +19,7 @@ If you want to contribute you are encouraged to fork this repo and make a push r
 To keep changes and formatting in line there are some rules in place to guarantee this:
 
 - All topics should be in a separate document.
-- The documents should be named as the title in only lowercase characters where spaces are replaced by dashes (`-`).
+- The documents should be named as the title in only lowercase characters where spaces are replaced by dashes (`-`) and prefixed with `n-` where `n` is the topic number.
 - The documents should be saved using the `.md` extension.
 - The documents should use proper markdown formatting.
 - When new documents are added the table of contents should be updated accordingly with the filename as entry.
