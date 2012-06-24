@@ -12,7 +12,6 @@ This is a list of topics that *may* still need to be implemented. The topics are
 - form handling
 - sessions
 - OOP introduction
-- quoting type
 - debugging
 - doc block introduction at the comments section
 - data types
