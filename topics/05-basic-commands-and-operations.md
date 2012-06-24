@@ -55,7 +55,7 @@ Another thing we can see in our example is that we are using a dot (`.`) to "tie
 Quotes
 ------
 
-Strings is PHP must always be enclosed in quotes. There are two types of quotes which can be used for this. Single quotes (`'`) and double quotes (`"`). A string in single quotes means a literal string in PHP. A string in double quotes is parsed by PHP. If we take the previous (simplified) example again we can see what the difference is between the two:
+Strings in PHP must always be enclosed in quotes. There are two types of quotes which can be used for this. Single quotes (`'`) and double quotes (`"`). A string in single quotes means a literal string in PHP. A string in double quotes is parsed by PHP. If we take the previous (simplified) example again we can see what the difference is between the two:
 
     <?php
     $userAge = 28;
@@ -93,9 +93,9 @@ Escaping
 
 Sometimes it may be neccesary to include a single quote inside a single quoted string. Or a double quote inside a double quoted string. In order to do this we need to escape the quote inside the string using the escape character (`\`):
 
-<?php
-echo 'This is an example of an escaped quote (\').'; // this will print: This is an example of an escaped quote (').
-echo "This is an example of an escaped quote (\")."; // this will print: This is an example of an escaped quote (").
+    <?php
+    echo 'This is an example of an escaped quote (\').'; // this will print: This is an example of an escaped quote (').
+    echo "This is an example of an escaped quote (\")."; // this will print: This is an example of an escaped quote (").
 
 > **Note:**
 > Because the backslash is used as the escape character it should be escape itself when adding it to a double quoted string. To add a backslash to a double quoted string escape it like: `echo "This string contains a backslash (\\).";`. This is only needed inside a double quoted string.
