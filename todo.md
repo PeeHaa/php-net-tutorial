@@ -8,7 +8,6 @@ This is a list of topics that *may* still need to be implemented. The topics are
 - naming conventions
 - functions
 - scoping
-- error reporting
 - database access
 - form handling
 - sessions
