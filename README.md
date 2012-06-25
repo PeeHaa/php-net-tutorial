@@ -25,6 +25,7 @@ To keep changes and formatting in line there are some rules in place to guarante
 - Always add links to [the English version of the manual][manual] where more information or further  
   explanation is justified. Note that links to the manual should **not** be preceded by a subdomain, e.g.: http://nl.php.net/manual/en/.
 - When adding links always use named link instead of numeric links or inline links.
+- Links should always be added at the end of the document.
 - Notes should be formatted using markdown blockquotes.
 
     > **Note:**  
