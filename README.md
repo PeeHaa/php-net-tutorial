@@ -1,13 +1,9 @@
 php.net Tutorial
 ================
 
-This repo contains a proposal for the new tutorial on [php.net][tutorial].  
-The idea is to create a better introduction tutorial for the language. The goal is to help new  
-people getting started using PHP and at the same time educate people in best practices.
+This repo contains a proposal for the new tutorial on [php.net][tutorial]. The idea is to create a better introduction tutorial for the language. The goal is to help new people getting started using PHP and at the same time educate people in best practices.
 
-The topics of this tutorial should contain all the information neccesary for people to create  
-their first project using PHP while considering the level of people who will use it: namely:  
-people new to the language.
+The topics of this tutorial should contain all the information neccesary for people to create their first project using PHP while considering the level of people who will use it: namely: people new to the language.
 
 Contribute
 ----------
