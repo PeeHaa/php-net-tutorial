@@ -67,6 +67,19 @@ In this example we are checking for two things. The first thing is whether the u
 
 In the above example we have used the "or" operator `||`.
 
+Another useful "trick" is grouping. With grouping we can group multiple conditions inside other conditions:
+
+    <?php
+    $user = array('length' => '1.82',
+                  'gender' => 'male',
+                  );
+
+    if (($user['length'] > 1.76 && $user['gender'] == 'female') || ($user['length'] > 1.8 && $user['gender'] == 'male')) {
+        echo 'You are taller than the average person.';
+    }
+
+In this example we have grouped two conditions. Grouping conditions is done by wrapping the conditions in extra parentheses (`()`). The reason we have used grouping in this example is because the average length of women is smaller than the average length of men. The example check whether the user is a woman taller than 1.76 feet OR the user is a man taller than 1.8 feet. If one of these conditions are met the text will be displayed.
+
 Todo:
 
 - strict comparison
