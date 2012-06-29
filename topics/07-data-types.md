@@ -16,6 +16,9 @@ PHP is a loose typed language which means that the type of a variable is not pre
 
 As you can see a string value consist of text and should always be enclosed in quotes (either single or double quotes). An integer value is is a whole number (without decimals). A float value (or double) is a number with decimals. A boolean value is either `true` or `false`.
 
+> **Note:**
+> As in most programming languages the decimal separator is a dot (`.`).
+
 Compound types
 --------------
 
@@ -70,6 +73,18 @@ Instead of just adding values to our array (which would have gotten a numeric in
     $user['username'] = 'PHP Dave';
     $user['fullname'] = 'Dave Doe';
     $user['age'] = 42;
+
+It is not possible to simply display all the contents of an array by `echo`ing it:
+
+    <?php
+    $myArray = array('First item',
+                     'Second item',
+                     'Third item',
+                     );
+
+    echo $myArray;
+
+This example will print the text `Array` rather than the contents of the array.
 
 > **Note:**
 > When debugging code it may be useful to see what an array (or any other variable for that matter) contains. To display all the contents of a variable we can use the builtin [`var_dump()` function][vardump]. E.g. in our previous example we could do: `var_dump($user);` to display the contents of our array (including the data types).
