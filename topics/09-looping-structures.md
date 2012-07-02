@@ -48,7 +48,7 @@ The next looping structure is the [`for`][for] loop. Using a for loop we can rep
     <?php
     echo 'Lets count to 10: ';
 
-    for($i = 1; $i < 11; $i++) {
+    for($i = 1; $i <= 10; $i++) {
         echo $i;
     }
 
