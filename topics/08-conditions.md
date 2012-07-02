@@ -70,9 +70,10 @@ In the above example we have used the "or" operator `||`.
 Another useful "trick" is grouping. With grouping we can group multiple conditions inside other conditions:
 
     <?php
-    $user = array('length' => '1.82',
-                  'gender' => 'male',
-                  );
+    $user = array(
+        'length' => '1.82',
+        'gender' => 'male',
+    );
 
     if (($user['length'] > 1.76 && $user['gender'] == 'female') || ($user['length'] > 1.8 && $user['gender'] == 'male')) {
         echo 'You are taller than the average person.';
@@ -83,9 +84,10 @@ In this example we have grouped two conditions. Grouping conditions is done by w
 Now that we have seen the simplest form of conditional statements we can take it a bit further:
 
     <?php
-    $movies = array('Pulp Fiction',
-                    'Hackers',
-                    );
+    $movies = array(
+        'Pulp Fiction',
+        'Hackers',
+    );
 
     if (count($movies) < 5) {
         echo 'You have a small collection of movies.';
@@ -98,9 +100,10 @@ In this conditional statement we have introduced two new things. The first is th
 We can even take this example one step further by adding an [`elseif`][elseif] statement:
 
     <?php
-    $movies = array('Pulp Fiction',
-                    'Hackers',
-                    );
+    $movies = array(
+        'Pulp Fiction',
+        'Hackers',
+    );
 
     if (count($movies) == 0) {
         echo 'Don't you like movies?';
@@ -113,9 +116,10 @@ We can even take this example one step further by adding an [`elseif`][elseif] s
 In this example we are first checking whether there are any movies in our array. When the number of movies is greater than 0 it goes further to the next statement which checks whether out movie collection contains less then 5 movies. And otherwise the text `You have a decent number of movies on your collection.` will be displayed. Not that when we would have 0 movies in our collection only the text `Don't you like movies?` would be displayed although 0 is also less than 5. This is because PHP stops checking for the other conditions once a condition is met. You can have as many `elseif` statement as you like / need.
 
     <?php
-    $movies = array('Pulp Fiction',
-                    'Hackers',
-                    );
+    $movies = array(
+        'Pulp Fiction',
+        'Hackers',
+    );
 
     if (count($movies) == 0) {
         echo 'Don't you like movies?';
@@ -130,9 +134,10 @@ In this example we are first checking whether there are any movies in our array.
 Another form of a conditional statement is a [`switch`][switch] statement:
 
     <?php
-    $animal = array('name' => 'Elephant',
-                    'type' => 'land',
-                    );
+    $animal = array(
+        'name' => 'Elephant',
+        'type' => 'land',
+    );
 
     switch($animal['type']) {
         case 'land':

@@ -25,20 +25,22 @@ Compound types
 PHP has two compound types: [array][array] and [object][object]. The object data type will be introduced in a later topic. An array can be seen as a list of values. These values can consist of all the different data types PHP offers. Instead of creating separate variables as in the previous example we could have also created an array to hold these values:
 
     <?php
-    $someArray = array('This is a string',
-                       42,
-                       3.14159265,
-                       FALSE,
-                       );
+    $someArray = array(
+        'This is a string',
+        42,
+        3.14159265,
+        FALSE,
+    );
 
 Once we have created our array we can access the different values by using an index. The indexes of arrays in PHP start with `0`. This index gets incremented when a new item is added. If we want to echo the number `3.14159265` from our array we have to access it by it's index (2):
 
     <?php
-    $someArray = array('This is a string',
-                       42,
-                       3.14159265,
-                       FALSE,
-                       );
+    $someArray = array(
+        'This is a string',
+        42,
+        3.14159265,
+        FALSE,
+    );
 
     echo 'This is pi: ' . $someArray[2]; // this will output: This is pi: 3.14159265
 
@@ -58,10 +60,11 @@ It is also possible to initialize an empty array and add items to it later in th
 PHP also supports named (or associative) arrays. This can be useful when storing specific data:
 
     <?php
-    $user = array('username' => 'PHP Dave',
-                  'fullname' => 'Dave Doe',
-                  'age'      => 42,
-                  );
+    $user = array(
+        'username' => 'PHP Dave',
+        'fullname' => 'Dave Doe',
+        'age'      => 42,
+    );
 
     echo 'Welcome back ' . $user['username']; // will output: Welcome back PHP Dave
 
@@ -77,10 +80,11 @@ Instead of just adding values to our array (which would have gotten a numeric in
 It is not possible to simply display all the contents of an array by `echo`ing it:
 
     <?php
-    $myArray = array('First item',
-                     'Second item',
-                     'Third item',
-                     );
+    $myArray = array(
+        'First item',
+        'Second item',
+        'Third item',
+    );
 
     echo $myArray;
 
