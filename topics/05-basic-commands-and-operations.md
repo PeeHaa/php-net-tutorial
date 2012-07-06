@@ -1,15 +1,15 @@
 Basic commands and operations
 =============================
 
-Printing texts
+Printing content
 --------------
 
-One of the most common things you want to do is displaying some texts. In the previous topics we have already done it. To display a text we can simply do:
+One of the most common things you want to do is display content. In the previous topics we have already done it. To display a message we can simply do:
 
     <?php
     echo 'This is the text that is going to be displayed';
 
-On the first line we have started PHP mode by adding the PHP opening tag `<?php`. On the second line we instruct PHP to display the text `This is the text that is going to be displayed`. As you can see the text is encapsulated in quotes. This is mandatory (for strings). And we close the `echo` statement with a semi colon (`;`).
+On the first line we have started PHP mode by adding the PHP opening tag `<?php`. On the second line we instruct PHP to display the text `This is the text that is going to be displayed`. As you can see the text is encapsulated in quotes. This is mandatory (for strings). We close the `echo` statement with a semi colon (`;`).
 
 > **Note:**
 > To do basic printing in PHP we can either use [`echo`][echo] or [`print`][print]. If we would have replaced `echo` with print in the previous example the outcome would have been the same.
@@ -60,8 +60,8 @@ Strings in PHP must always be enclosed in quotes. There are two types of quotes 
     <?php
     $userAge = 28;
 
-    echo 'Your current age is: $userAge'; // this wil print: Your current age is: $userAge
-    echo "Your current age is: $userAge"; // this wil print: Your current age is: 28
+    echo 'Your current age is: $userAge'; // prints: Your current age is: $userAge
+    echo "Your current age is: $userAge"; // prints: Your current age is: 28
 
 As you can see in the first `echo` line it is printed "as is". The reason we have used string concatenation (the dot notation) instead of a double quoted string in our previous example is because PHP doesn't parse the calculation, but only the variable. So if we would have done:
 
@@ -91,14 +91,14 @@ In the above example we have used a string in single quotes. Because of this we 
 Escaping
 --------
 
-Sometimes it may be neccesary to include a single quote inside a single quoted string. Or a double quote inside a double quoted string. In order to do this we need to escape the quote inside the string using the escape character (`\`):
+It is sometimes neccesary to use a single quote inside a single quoted string or a double quote inside a double quoted string. In order to do this we need to escape the quote inside the string using the escape character (`\`):
 
     <?php
-    echo 'This is an example of an escaped quote (\').'; // this will print: This is an example of an escaped quote (').
-    echo "This is an example of an escaped quote (\")."; // this will print: This is an example of an escaped quote (").
+    echo 'This is an example of an escaped quote (\').'; // prints: This is an example of an escaped quote (').
+    echo "This is an example of an escaped quote (\")."; // prints: This is an example of an escaped quote (").
 
 > **Note:**
-> Because the backslash is used as the escape character it should be escape itself when adding it to a double quoted string. To add a backslash to a double quoted string escape it like: `echo "This string contains a backslash (\\).";`. This is only needed inside a double quoted string.
+> If you want to print a backslash you must escape it with a backslash: `echo "This string contains a backslash (\\).";`. This is only needed inside a doublequoted string.
 
 [echo]:http://php.net/manual/en/function.echo.php
 [print]:http://php.net/manual/en/function.print.php
