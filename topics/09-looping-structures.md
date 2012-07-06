@@ -55,7 +55,7 @@ The next looping structure is the [`for`][for] loop. Using a for loop we can rep
 This example will output: `Lets count to 10: 12345678910`. Instead of looping through an array with items (as in the previous example) we are now defining how many times the code in our loop should get executed. First we create and initialize a variable `$i`. After that we tell PHP until what value it should continue to loop. And finally we tell PHP to add `1` to the current value of `$i`.
 
 > **Note:**  
-> The `++` in this example is called the incrementing operator. It is the same as doing `$i = $i + 1;`.
+> The `++` in this example is called the [incrementing operator][incrementing-operator]. It is the same as doing `$i = $i + 1;`.
 
 We can also use the for loop to count down to a value:
 
@@ -82,7 +82,48 @@ This will display: `Lets count down: 108642`.
 > **Note:**  
 > The [assignment operator][assigment-operator] (`$i-=2`) we have used in this example is the same as doing: `$i = $i - 2;`
 
+The next looping structure is the [`while`][while] loop:
+
+    <?php
+    echo 'Lets count to 10: ';
+
+    $i = 1;
+    while ($i <= 10) {
+        echo $i++;
+    }
+
+The code in the while loop will keep being executed for as long as the expression evaluates to true. In this example this will display: `Lets count to 10: 12345678910`.
+
+Another similar loop is the [`do while`][do-while] loop:
+
+    <?php
+    echo 'Lets count to 10: ';
+
+    $i = 1;
+    do {
+        echo $i++;
+    } while ($i <= 10)
+
+This example will display exactly the same thing as the previous example. As you can see the syntax is slighty different than our `while` example. I.e. the expression is at the end of the loop instead of at the start. This is also the difference between the two. In a "normal" while loop the expression is checked before the first iteration of the loop. In a do while loop it is checked for the first time after the first iteration. What this means is that the code inside a do while will always executed at least once.
+
+An example of this difference:
+
+    <?php
+    $isValid = false;
+
+    while($isValid) {
+        echo 'Printing text inside the while loop.';
+    }
+
+    do {
+        echo 'Printing text inside the do while loop.';
+    } while($isValid);
+
+In the above example only the text `Printing text inside the do while loop.` will be displayed. Because we are using a variable with a `false` value the while loop doesn´t iterate at all. However since the do while loop only checks the value after the iteration it will display the text (once).
+
 [foreach]:http://php.net/manual/en/control-structures.foreach.php
 [for]:http://php.net/manual/en/control-structures.for.php
 [incrementing-operator]:http://php.net/manual/en/language.operators.increment.php
 [assigment-operator]:http://php.net/manual/en/language.operators.assignment.php
+[while]:http://php.net/manual/en/control-structures.while.php
+[do-while]:http://php.net/manual/en/control-structures.do.while.php
