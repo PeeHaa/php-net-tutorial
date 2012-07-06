@@ -121,9 +121,59 @@ An example of this difference:
 
 In the above example only the text `Printing text inside the do while loop.` will be displayed. Because we are using a variable with a `false` value the while loop doesn´t iterate at all. However since the do while loop only checks the value after the iteration it will display the text (once).
 
+It is also possible to skip a (part of) an iteration using the [`continue`][continue] keyword:
+
+    <?php
+    $users = array(
+        array(
+            'name' => 'John Doe',
+            'isAdmin' => false,
+        ),
+        array(
+            'name' => 'John Smith',
+            'isAdmin' => true,
+        ),
+        array(
+            'name' => 'James Johnson',
+            'isAdmin' => false,
+        ),
+        array(
+            'name' => 'Michael Jones',
+            'isAdmin' => true,
+        ),
+    );
+
+    $adminUsers = array();
+    $adminCount = 0;
+    foreach($users as $user) {
+        if (!$user['isAdmin']) {
+            continue;
+        }
+
+        $adminCount++;
+        $adminUsers[] = $user['name'];
+    }
+
+    echo 'There are currently ' . $adminCount . ' administrators;
+    if ($adminCount > 0) {
+        echo ' (' . implode(', ', $adminUsers) . ')';
+    }
+
+There are several things happening in this example which we haven't seen yet. The first thing is the so called multidimensional array. This is nothing more than an array (or arrays) inside another array. As we have seen in the previous example we can access a value from an array by using either the numeric index or the named index (when supplied). If we want to display the name of John Smith we can access it directly by `$users[1]['name']`.
+
+Next thing we do in the example is getting the number of administrators and the names of the administrators in our multidimensional array. Before we are getting this info we are declaring (and initializing) two variables: `$adminUsers` (which will contain the names of the administrators) and `$adminCount` (which will contain the number of administrators).
+
+In our `foreach` loop we are looping through all the users in our array. Because we only need the administrators in this example we first check whether the current user is an administrator. When the user is not an administrator we will skip (`continue`) further execution of the iteration and move on to the next user. However when the user is an administrator we will add 1 to our count and add the name of the user to our array of administrators.
+
+Once the loops is finished we will display the number of administrators. And when there are administrators in our array we will display there names separated by a comma. This is done by the builtin [`implode()`][implode] function. The implode function returns all the items in an array "glued together" by a separator (in our case a comma and a space).
+
+The result of this example would be: `'There are currently 2 administrators (John Smith, Michael Jones)`.
+
 [foreach]:http://php.net/manual/en/control-structures.foreach.php
 [for]:http://php.net/manual/en/control-structures.for.php
 [incrementing-operator]:http://php.net/manual/en/language.operators.increment.php
 [assigment-operator]:http://php.net/manual/en/language.operators.assignment.php
 [while]:http://php.net/manual/en/control-structures.while.php
 [do-while]:http://php.net/manual/en/control-structures.do.while.php
+[continue]:http://php.net/manual/en/control-structures.continue.php
+[implode]:http://php.net/manual/en/function.implode.php
