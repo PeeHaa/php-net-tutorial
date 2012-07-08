@@ -321,6 +321,47 @@ We have now added more information (login timestamp) about an user to our `$user
 
 We have limited the number of login timestamps to display to three by using the `break` keyword to break out of the loop where we are getting the different timestamps. This will not break out of the loop where we are itarting through all the users.
 
+The break keyword we have used in our previous example only breaks out the first loop (the one with the timestamps in it), but it is also possible to break out of a nested loop:
+
+    <?php
+    $users = array(
+        array(
+            'name' => 'John Doe',
+            'isAdmin' => false,
+            'logins' => array(
+                '2012-07-08 14:42:35',
+            ),
+        ),
+        array(
+            'name' => 'John Smith',
+            'isAdmin' => true,
+            'logins' => array(
+                '2012-04-13 10:32:01',
+                '2012-04-13 01:14:19',
+                '2012-04-10 15:24:53',
+                '2012-04-09 12:31:27',
+                '2012-04-08 12:14:11',
+            ),
+        ),
+    );
+
+    foreach($users as $user) {
+        foreach($user['logins'] as $login) {
+            if (strpos($login, '2012') === 0) {
+                echo 'At least one user has logged in in 2012.';
+
+                break 2;
+            }
+        }
+    }
+
+In this example we want to find out whether any user has ever logged in in the year 2012. When somebody has logged in in 2012 we display the text `At least one user has logged in in 2012.` and we break out of both loops by using `break 2`. The number 2 is the number of nested loops we are breaking out. We are doing this, because we don't need to check other users once we have found out that sombody has logged in.
+
+Also note the use of the builtin [`strpos()`][strpos] function. This function checks whether a string (in our case a timestamp) contains the number `2012`. It return `false` when 2012 is not found and otherwise it returns the position it has found 2012 in our string. Because we want to check whether our string starts with 2012 (the year) it should return position 0 when found. The reason we are doing a strict comparison (`===`) is because otherwise 0 would have been the same as false as we have seen in the previous topic.
+
+> **Note:**  
+> Just as `break` does `continue` also supports the optional numeric argument to skip iterations of nested loops.
+
 [foreach]:http://php.net/manual/en/control-structures.foreach.php
 [for]:http://php.net/manual/en/control-structures.for.php
 [incrementing-operator]:http://php.net/manual/en/language.operators.increment.php
@@ -331,3 +372,4 @@ We have limited the number of login timestamps to display to three by using the 
 [implode]:http://php.net/manual/en/function.implode.php
 [count]:http://php.net/manual/en/function.count.php
 [break]:http://php.net/manual/en/control-structures.break.php
+[strpos]:http://php.net/manual/en/function.strpos.php
