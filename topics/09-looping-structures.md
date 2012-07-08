@@ -225,6 +225,102 @@ Once we have found two administrators we will break out of the loop (e.g. the it
 > **Note:**  
 > The `continue` and `break;` keywords work for all looping structures.
 
+It is also possible to nest multiple loops inside eachother:
+
+    <?php
+    $users = array(
+        array(
+            'name' => 'John Doe',
+            'isAdmin' => false,
+            'logins' => array(
+                '2012-07-08 14:42:35',
+            ),
+        ),
+        array(
+            'name' => 'John Smith',
+            'isAdmin' => true,
+            'logins' => array(
+                '2012-04-13 10:32:01',
+                '2012-04-13 01:14:19',
+                '2012-04-10 15:24:53',
+                '2012-04-09 12:31:27',
+                '2012-04-08 12:14:11',
+            ),
+        ),
+    );
+    ?>
+
+    <html>
+      <head>
+        <title>Last logins of users</title>
+      </head>
+      <body>
+        <h1>Overview of last logins of users</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Admin?</th>
+              <th>Last 3 logins</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach($users as $user) { ?>
+            <tr>
+              <td><?php echo $user['name']; ?></td>
+              <td><?php if ($user['isAdmin']) echo 'Yes'; ?></td>
+              <?php
+              $lastLogins = array();
+              foreach($user['logins'] as $index => $login) {
+                  if ($index == 3) {
+                      break;
+                  }
+
+                  $lastLogins[] = $login;
+              }
+              ?>
+              <td><?php echo implode(', ', $lastLogins); ?></td>
+            </tr>
+            <?php } ?>
+          </tbody>
+        </table>
+      </body>
+    </html>
+
+We have now added more information (login timestamp) about an user to our `$users` array. In this example we are looping through users to add them to an HTML table. Inside the foreach loop we are looping through the login timestamps of the users to display the last three login timestamps of every user. The resulting HTML will be:
+
+    <html>
+      <head>
+        <title>Last logins of users</title>
+      </head>
+      <body>
+        <h1>Overview of last logins of users</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Admin?</th>
+              <th>Last 3 logins</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>John Doe</td>
+              <td></td>
+              <td>2012-07-08 14:42:35</td>
+            </tr>
+            <tr>
+              <td>John Smith</td>
+              <td>Yes</td>
+              <td>2012-04-13 10:32:01, 2012-04-13 01:14:19, 2012-04-10 15:24:53</td>
+            </tr>
+          </tbody>
+        </table>
+      </body>
+    </html>
+
+We have limited the number of login timestamps to display to three by using the `break` keyword to break out of the loop where we are getting the different timestamps. This will not break out of the loop where we are itarting through all the users.
+
 [foreach]:http://php.net/manual/en/control-structures.foreach.php
 [for]:http://php.net/manual/en/control-structures.for.php
 [incrementing-operator]:http://php.net/manual/en/language.operators.increment.php
