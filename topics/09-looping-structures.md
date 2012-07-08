@@ -169,6 +169,62 @@ Once the loops is finished we will display the number of administrators. And whe
 
 The result of this example would be: `'There are currently 2 administrators (John Smith, Michael Jones)`.
 
+> **Note:**  
+> Instead of having a separate counter with the number of administrators (`$adminCount`) like in our example we could also have used the builtin [`count()`][count] function to get the number of elements in our `$adminUsers` array.
+
+In some cases it may be useful to break out of a loop instead of just skipping an iteration. This is done by the [`break`][break] keyword:
+
+    <?php
+    $users = array(
+        array(
+            'name' => 'John Doe',
+            'isAdmin' => false,
+        ),
+        array(
+            'name' => 'John Smith',
+            'isAdmin' => true,
+        ),
+        array(
+            'name' => 'James Johnson',
+            'isAdmin' => false,
+        ),
+        array(
+            'name' => 'Michael Jones',
+            'isAdmin' => true,
+        ),
+        array(
+            'name' => 'Matthew Moore',
+            'isAdmin' => true,
+        ),
+    );
+
+    $adminUsers = array();
+    $adminCount = 0;
+    foreach($users as $user) {
+        if (!$user['isAdmin']) {
+            continue;
+        }
+
+        $adminCount++;
+        $adminUsers[] = $user['name'];
+
+        if ($adminCount == 2) {
+            break;
+        }
+    }
+
+    echo 'There are currently ' . $adminCount . ' administrators;
+    if ($adminCount > 0) {
+        echo ' (' . implode(', ', $adminUsers) . ')';
+    }
+
+This example is almost the same as the previous example. Two things we have added is: an extra user (which is an admin) and we added a check at the end of our loop which check whether we already have found two administrators in our users array.
+
+Once we have found two administrators we will break out of the loop (e.g. the iterations stop) by using the `break` keyword.
+
+> **Note:**  
+> The `continue` and `break;` keywords work for all looping structures.
+
 [foreach]:http://php.net/manual/en/control-structures.foreach.php
 [for]:http://php.net/manual/en/control-structures.for.php
 [incrementing-operator]:http://php.net/manual/en/language.operators.increment.php
@@ -177,3 +233,5 @@ The result of this example would be: `'There are currently 2 administrators (Joh
 [do-while]:http://php.net/manual/en/control-structures.do.while.php
 [continue]:http://php.net/manual/en/control-structures.continue.php
 [implode]:http://php.net/manual/en/function.implode.php
+[count]:http://php.net/manual/en/function.count.php
+[break]:http://php.net/manual/en/control-structures.break.php
