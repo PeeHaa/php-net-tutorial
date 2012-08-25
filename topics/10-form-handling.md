@@ -90,7 +90,7 @@ When displaying data it is important to prevent so called XSS vulnerabilities in
       </body>
     </html>
 
-This script will allow the user to add keywords into a searchfield. Instead of using the `$_POST` variable we are now using the [`$_GET`][get-supergloba;] variable to access out form values. We can access it this way, because set set the method of the form to `get`. When we are using the get method the values of our form will be added to our URL. So when the form gets submitted the resulting URL will be: `http://domain.com/search.php?keywords=keywords%20added%20by%20user&submit=Search`. The get and post methods refer to the [HTTP methods][http-methods]. It depends on what you are trying to do which method you should use when submitting data. Generally when you are sending data to the server in order to be saved you would use the post method (in our example the registration for) and when using form data to retrieve information from the server we would use get (this example where we are getting search results). Also note the when submitting a form using the post method the values of our form don't get appended to the URL.
+This script will allow the user to add keywords into a searchfield. Instead of using the `$_POST` variable we are now using the [`$_GET`][get-superglobal] variable to access out form values. We can access it this way, because set set the method of the form to `get`. When we are using the get method the values of our form will be added to our URL. So when the form gets submitted the resulting URL will be: `http://domain.com/search.php?keywords=keywords%20added%20by%20user&submit=Search`. The get and post methods refer to the [HTTP methods][http-methods]. It depends on what you are trying to do which method you should use when submitting data. Generally when you are sending data to the server in order to be saved you would use the post method (in our example the registration for) and when using form data to retrieve information from the server we would use get (this example where we are getting search results). Also note the when submitting a form using the post method the values of our form don't get appended to the URL.
 
 When the user submits the form the keywords are filled in again in the textfield. This looks fine at first, however consider the following keywords added by the user: `"><script>alert('I\'ve just injected malicious javascript in the page!')</script><input type="hidden`. Because we are filling in the value of the searchbox on submit with the user supplied data the resulting HTML will look like:
 
@@ -187,6 +187,12 @@ In this example we are first defining a variable which contains the maximum size
 
 Once the user has chosen a file and submits the form the file will be uploaded to a temporary directory. Note that for file uploads PHP uses another variable ([`$_FILES`][files-superglobal]) which will contain all the needed information to process the upload. When the form is submitted we are first checking whether the file doesn't exceed the maximum filesize we set. Note that we are not using the `MAX_FILE_SIZE` value coming from the form, because this could easily be changed by the client. When the filesize doesn't exceed the filesize limit we are trying to move the file from the temporary directory to the directory we want to save it in. If that succeeds we are doing a redirect to the same page (upload.php). By doing a redirect we prevent the message in browsers about data being send again when the user refreshes the page.
 
+> **Note:**  
+> Note that besides enforcing a maximum size of file uploads through either the HTML form or through a PHP script there are also some PHP configuration option to keep in mind. One of these configuration options is the [`post_max_size`][post-max-size] php.ini directive. And another one is the [`upload_max_filesize`][upload-max-filesize] php.ini directive. When uploading large files another setting that needs to be kept in mind is [`max_input_time`][max-input-time].
+
+> **Note:**  
+> A popular way of validating data input by the user is by doing it on the client-side by for example using javascript. Although there is nothing wrong with this it is important that you also always validate the user input on the serverside, because the client can always circumvent the clientside validation.
+
 [post-superglobal]:http://php.net/manual/en/reserved.variables.post.php
 [get-superglobal]:http://php.net/manual/en/reserved.variables.get.php
 [isset]:http://php.net/manual/en/function.isset.php
@@ -196,9 +202,6 @@ Once the user has chosen a file and submits the form the file will be uploaded t
 [htmlspecialchars]:http://php.net/manual/en/function.htmlspecialchars.php
 [http-methods]:http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
 [files-superglobal]:http://php.net/manual/en/reserved.variables.files.php
-
-Todo
-- max post size etc
-- server validation
-- security
-- fix mistakes :-)
+[post-max-size]:http://php.net/manual/en/ini.core.php#ini.post-max-size
+[upload-max-filesize]:http://www.php.net/manual/en/ini.core.php#ini.upload-max-filesize
+[max-input-time]:http://www.php.net/manual/en/info.configuration.php#ini.max-input-time
