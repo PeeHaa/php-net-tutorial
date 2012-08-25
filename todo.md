@@ -7,7 +7,6 @@ This is a list of topics that *may* still need to be implemented. The topics are
 - functions
 - scoping
 - database access
-- form handling
 - sessions
 - OOP introduction
 - debugging
