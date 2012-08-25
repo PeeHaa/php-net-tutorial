@@ -1,0 +1,4 @@
+Sessions and cookies
+====================
+
+In the previous topics you have seen that you can save data in variables. Although this is very useful the variables set are only defined per request. This means that when you have set a variable and you refresh the page or navigate to another page the variable will not be set. PHP also provides a way to make data more persistent. One way to accomplish this is by using a database to store information in which is something we will cover in a later topic. For some data you want to store it only has to be persintent for as long as the user is on your site (e.g. for checking whether a user is logged in). Or you want to provide a remember function on your website in which case you would have to store some persistent information on the users computer.
