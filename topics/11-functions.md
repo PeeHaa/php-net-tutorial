@@ -63,6 +63,36 @@ In this example you have created a function which accepts one required parameter
 
 What happens when you run this code is that it will display the articles from our array. It will display the title of the article, the excerpt of the full text of the article. And below each article it will format the date and displays it. To format the date we have used PHP's builtin [DateTime][datetime] class.
 
+It is important that you note that variables declared outside of a function cannot be accessed from within a function. This is what is called [variables scope][variables-scope]. Because of this you should always pass the information you need access to in a function as an argument of that function:
+
+    <?php
+
+    $text = 'This is an example text.';
+
+    function verifyMinimumLength()
+    {
+        if (strlen($text) > 20) {
+            return true;
+        }
+
+        return false;
+    }
+
+    function verifyMinimumLength2($text)
+    {
+        if (strlen($text) > 20) {
+            return true;
+        }
+
+        return false;
+    }
+
+    // this function call will produce the notice: Notice: Undefined variable: text in /code/8j8gS0 on line 7
+    verifyMinimumLength();
+
+    // this function call will work, because you are passing the text as a parameter to the function
+    verifyMinimumLength2($text);
+
 [builtin-functions]:http://php.net/manual/en/functions.internal.php
 [abs]:http://php.net/manual/en/function.abs.php
 [return]:http://php.net/manual/en/function.return.php
@@ -71,3 +101,4 @@ What happens when you run this code is that it will display the articles from ou
 [header]:http://php.net/manual/en/function.header.php
 [exit]:http://php.net/manual/en/function.exit.php
 [datetime]:http://php.net/manual/en/book.datetime.php
+[variables-scope]:http://php.net/manual/en/language.variables.scope.php
