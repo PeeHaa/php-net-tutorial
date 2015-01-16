@@ -97,7 +97,7 @@ It is important that you note that variables declared outside of a function cann
 
     <?php
 
-    $people = ['Mary', 'Job', 'Judas'];
+    $people = array('Mary', 'Job', 'Judas');
     
     $greet = function($name) {
         printf("Hello, %s \n", $name);
