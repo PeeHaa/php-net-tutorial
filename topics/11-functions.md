@@ -106,6 +106,7 @@ It is important that you note that variables declared outside of a function cann
     
     array_walk($people, $greet);
     
+The above example will output: `Hello Mary \n Hello Job, Hello Judas`. The anonymous function (assigned to `$greet`) has been passed to the [array_walk][array-walk] as the second argument.
 
 
 [builtin-functions]:http://php.net/manual/en/functions.internal.php
@@ -118,3 +119,4 @@ It is important that you note that variables declared outside of a function cann
 [datetime]:http://php.net/manual/en/book.datetime.php
 [variables-scope]:http://php.net/manual/en/language.variables.scope.php
 [anonymous-functions]:http://php.net/manual/en/functions.anonymous.php
+[array-walk]:http://php.net/manual/en/function.array-walk.php
