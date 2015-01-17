@@ -93,6 +93,22 @@ It is important that you note that variables declared outside of a function cann
     // this function call will work, because you are passing the text as a parameter to the function
     verifyMinimumLength2($text);
 
+[Anonymous functions][anonymous-functions] (also known as closures) are functions created without names. These functions can be assigned to variables and can then be passed to other functions (just like variables).:
+
+    <?php
+
+    $people = array('Mary', 'Job', 'Judas');
+    
+    $greet = function($name) {
+        printf("Hello, %s \n", $name);
+    };
+    //this is an anonymous function that has been assigned to a variable
+    
+    array_walk($people, $greet);
+    
+The above example will output: `Hello Mary \n Hello Job, Hello Judas`. The anonymous function (assigned to `$greet`) has been passed to the [array_walk][array-walk] as the second argument.
+
+
 [builtin-functions]:http://php.net/manual/en/functions.internal.php
 [abs]:http://php.net/manual/en/function.abs.php
 [return]:http://php.net/manual/en/function.return.php
@@ -102,3 +118,5 @@ It is important that you note that variables declared outside of a function cann
 [exit]:http://php.net/manual/en/function.exit.php
 [datetime]:http://php.net/manual/en/book.datetime.php
 [variables-scope]:http://php.net/manual/en/language.variables.scope.php
+[anonymous-functions]:http://php.net/manual/en/functions.anonymous.php
+[array-walk]:http://php.net/manual/en/function.array-walk.php
