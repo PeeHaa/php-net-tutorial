@@ -236,7 +236,7 @@ Although this variable has a much more complex structure the same rule apply as 
 Xdebug
 ------
 
-Another useful tool for debugging your PHP code is [Xdebug][xdebug]. Xdebug formats (amongst others) the error and the `var_dump` outputs of PHP. Xdebug is not installed by default on most PHP installation, but can be downloaded from [their site][xdebug].
+Another useful tool for debugging your PHP code is [Xdebug][xdebug]. Xdebug formats (amongst others) the error and the `var_dump` outputs of PHP. Xdebug is not installed by default on most PHP installation, but can be downloaded from [their site][xdebug]. Xdebug can also be used to step through code (there is also integration with IDEs).
 
 [var-dump]:http://nl1.php.net/manual/en/function.var-dump.php
 [xdebug]:http://xdebug.org
