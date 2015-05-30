@@ -79,6 +79,21 @@ Single line comments start with `//` and everything after this on the same line 
 
 The above example will only output `The is a basic instruction`.
 
+It is possible to use [PHPDoc][phpdoc] (PHP's adaptation of Javadoc) to document functions, constants, classes, interfaces, traits, class constants, properties and methods. Using this method of documentation allows external document generators easily generate documentation for APIs. Some IDEs also use DocBlocks to interpret types and provide code completion features. In the example below, the `loadUserByUsername()` function accepts a string, returns an object of type `User` or implements `UserInterface` interface, and will throw a `UsernameNotFoundException` exception if the user is not found.
+
+    <?php
+    /**
+     * Used automatically from the silex login process
+     *
+     * @param string $username
+     *
+     * @return User|UserInterface
+     *
+     * @throws UsernameNotFoundException
+     */
+    function loadUserByUsername($username) { ... }
+
 [php-tags]:http://php.net/manual/en/language.basic-syntax.phptags.php
 [instructions]:http://php.net/manual/en/language.basic-syntax.instruction-separation.php
 [comments]:http://php.net/manual/en/language.basic-syntax.comments.php
+[phpdoc]:http://en.wikipedia.org/wiki/PHPDoc
